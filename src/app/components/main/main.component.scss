@@ -1,0 +1,27 @@
+::ng-deep {
+    .mat-tab-nav-bar, .mat-tab-header {
+        border-bottom: 0px;
+    }
+
+    .mat-tab-label {
+        width: 25%;
+        .mat-tab-label-content {
+            color: red;
+            text-transform: uppercase;
+        }
+    }
+
+    .mat-ink-bar {
+        height: 0px !important;
+    }
+}
+.cnt-inpt{
+    margin:2%;
+}s
+.main-inpt{
+    width: 30%;
+    border-radius:4px;
+}
+.preview-entries{
+    max-width: 150px;
+}

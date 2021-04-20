@@ -1,0 +1,154 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1 text-center">
+            <img src="..\..\assets\logoGrillKids.png">
+        </div>
+        <div class="col">
+            <mat-tab-group>
+                <mat-tab label="Participa">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <video>
+                                </video>
+                            </div>
+                            <div class="col">
+                                <h2>¡Estamos buscando a los niños más parrilleros!</h2>
+                                <p>¿Conoces a un niño o niña que le guste hacer carne asada? Únete a nuestro Challenge
+                                    Grill Kids y participa para ganar un Big Green Egg Minimax y kits parrilleros.
+                                </p>
+                                <h2>¿Cómo participar? </h2>
+                                <p>
+                                    La convocatoria está abierta para niños y niñas de 6 a 13 años quienes podrán
+                                    participar, con ayuda de sus papás, realizando una de sus recetas más creativas con
+                                    res a la parrilla. Habrá premios para los primeros 3 lugares, que serán los que
+                                    reciban más votaciones.Consulta las bases, términos y condiciones.
+                                    ¡Participa!
+                                </p>
+                                <button mat-flat-button color="warn">
+                                    Participa
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Términos y condiciones">
+                    <ng-template #termns>
+                        <div class="container">
+                            <div class="row">
+                                <h2>Términos y condiciones:</h2>
+                                <div>
+                                    <p>Bases:</p>
+                                    <ul>
+                                        <li>El concurso consiste en que cada niño o niña elabore una receta a la
+                                            parrilla en
+                                            donde ponga a prueba su creatividad, con ayuda de su papá o mamá</li>
+                                        <li>Para participar el niño o la niña deberá tener mínimo 6 hasta 13 años
+                                            cumplidos
+                                            al día del cierre de convocatoria. </li>
+                                        <li>La categoría de esta competencia es res y la presentación es libre, pueden
+                                            utilizar asador de carbón o gas y acompañar con guarnición su platillo.Para
+                                            poder concursar deberán elaborar un video de 1 a 3 minutos como máximo, en
+                                            el
+                                            cual se debe mostrar cómo el menor elabora el platillo y explica la receta
+                                            con
+                                            su preparación. Tienes hasta el día 27 como fecha límite para subir el
+                                            video.
+                                        </li>
+                                        <li>
+                                            <p>Requisitos del video:</p>
+                                            <ul>
+                                                <li>
+                                                    La duración del video es de 1 a máximo 3 minutos. Cualquier video
+                                                    con
+                                                    duración mayor será descalificado. El video deberá estar en un
+                                                    formato
+                                                    horizontal.
+                                                </li>
+                                                <li>
+                                                    En el video deberá aparecer el menor preparando el platillo, el
+                                                    tutor
+                                                    puede ayudarlo para prender carbón o maniobrar fuego únicamente para
+                                                    evitar cualquier situación de peligro.
+                                                </li>
+                                                <li>
+                                                    El platillo debe ser preparado en la parrilla asador tradicional o
+                                                    de
+                                                    gas.
+                                                </li>
+                                                <li>
+                                                    La receta debe tener res como proteína y puede estar acompañada de
+                                                    guarniciones
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            Los videos que no cumplan con estos requisitos serán descalificados
+                                            Premiaremos
+                                            a los 3 videos que obtengan mayor cantidad de votos. Las votaciones
+                                            comenzarán a
+                                            partir del 27 de abril hasta el 30 de abril, se cerrarán las votaciones a
+                                            las
+                                            12:00pm para proceder al conteo de votos.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button mat-stroked-button (click)="showForm()">
+                                        Cargar tu video
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                    <ng-container *ngIf="quiereParticipar else termns">
+                        <form class="container">
+                            <div class="row cnt-inpt">
+                                <input className="main-inpt" name="cltName" placeholder="Nombre" [(ngModel)]="cltName">
+                            </div>
+                            <div class="row cnt-inpt">
+                                <input className="main-inpt" name="cltEmail" placeholder="Email" [(ngModel)]="cltEmail">
+                            </div>
+                            <div class="row cnt-inpt">
+                                <input placeholder="Comprobante" type="file" (change)="readComprobante($event)">
+                            </div>
+                            <div class="row cnt-inpt">
+                                <input placeholder="Video Participacion" type="file"
+                                    (change)="readParticipacion($event)">
+                            </div>
+                            <div class="row">
+                                <button [disabled]="cltName == '' || cltEmail == '' " mat-stroked-button
+                                    (click)="registerUserAType()">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </ng-container>
+                </mat-tab>
+                <mat-tab label="¡Vota ya!">
+
+                    <div class="container">
+                        Galeria de participantes
+                        <!-- <button (click)="getNewEntries()">
+                            Actualiza
+                        </button> -->
+                        <div class="row">
+                            <div class="col" *ngFor="let item of arrImagenes">
+                                <video height="300" [src]="item | async" class="preview-entries" controls>
+                                    <!-- <source type=video/mov >  -->
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="Premios"> Content 3 </mat-tab>
+            </mat-tab-group>
+        </div>
+        <div class="col-1 text-center">Logo SMP </div>
+    </div>
+</div>

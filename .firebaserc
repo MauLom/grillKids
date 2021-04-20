@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "grillkids-smp"
+  },
+  "targets": {
+    "grillkids-smp": {
+      "hosting": {
+        "grillKids": [
+          "grillkids-smp"
+        ]
+      }
+    }
+  }
+}
