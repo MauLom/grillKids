@@ -114,11 +114,14 @@
                                 <input class="inputs" name="cltEmail" placeholder="Email" [(ngModel)]="cltEmail">
                             </div>
                             <div class="row cnt-inpt">
-                                <input placeholder="Comprobante" type="file" (change)="readComprobante($event)">
+                                Ingresa un comprobante de la edad del participante:<input placeholder="Comprobante"
+                                    type="file" (change)="readComprobante($event)">
                             </div>
                             <div class="row cnt-inpt">
-                                <input placeholder="Video Participacion" type="file"
-                                    (change)="readParticipacion($event)">
+                                <div class="col">Aqui tu video participante en el concurso:</div>
+                                <div class="col"><input placeholder="Video Participacion" type="file"
+                                        (change)="readParticipacion($event)"></div>
+
                             </div>
                             <div class="row">
                                 <button [disabled]="cltName == '' || cltEmail == '' " mat-stroked-button
