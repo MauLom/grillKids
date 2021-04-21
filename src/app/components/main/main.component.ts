@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
 
   arrParticipantes: Array<any> = [];
   arrImagenes: Array<any> = [];
+  tabQuestionsIndex: number = 0;
   constructor(
     private storage: AngularFireStorage,
     private db: AngularFireDatabase,
@@ -39,6 +40,10 @@ export class MainComponent implements OnInit {
   generateRandomNo(min: number, max: number): number {
     return Math.floor((Math.random() * (max - min + 1)) + min);;
   }
+  goNextTab() {
+    this.tabQuestionsIndex = (this.tabQuestionsIndex + 1);
+  }
+
   /// [Tab Terminos y condiciones]
   readComprobante(event: any) {
     this.file1 = event.target.files[0];

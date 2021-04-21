@@ -4,12 +4,12 @@
             <img src="..\..\assets\logoGrillKids.png" class="logoGrillKids">
         </div>
         <div class="col ">
-            <mat-tab-group>
+            <mat-tab-group [(selectedIndex)]="tabQuestionsIndex">
                 <mat-tab id="btn1" label="Participa">
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <img  class="imgParticpacion" src="../../../assets/flamaYFlamin.png"/>
+                                <img class="imgParticpacion" src="../../../assets/flamaYFlamin.png" />
                             </div>
                             <div class="col txt-particpa">
                                 <h2>¡Estamos buscando a los niños más parrilleros!</h2>
@@ -24,7 +24,7 @@
                                     reciban más votaciones.Consulta las bases, términos y condiciones.
                                     ¡Participa!
                                 </p>
-                                <button mat-flat-button color="warn">
+                                <button mat-flat-button color="warn" (click)="goNextTab()">
                                     Participa
                                 </button>
                             </div>
@@ -113,11 +113,13 @@
                                 <input class="inputs" name="cltEmail" placeholder="Email" [(ngModel)]="cltEmail">
                             </div>
                             <div class="row cnt-inpt">
-                                Ingresa un comprobante de la edad del participante:<input placeholder="Comprobante"
-                                    type="file" (change)="readComprobante($event)">
+                                <div class="col">Ingresa un comprobante de la edad del participante:</div><br />
+                                <div class="col">
+                                <input placeholder="Comprobante" type="file" (change)="readComprobante($event)">
+                                </div>
                             </div>
                             <div class="row cnt-inpt">
-                                <div class="col">Aqui tu video participante en el concurso:</div>
+                                <div class="col">Aqui tu video participante en el concurso:</div><br/>
                                 <div class="col"><input placeholder="Video Participacion" type="file"
                                         (change)="readParticipacion($event)"></div>
 
@@ -131,7 +133,7 @@
                         </form>
                     </ng-container>
                 </mat-tab>
-                <mat-tab #btn3 label="¡Vota ya!">
+                <mat-tab disabled #btn3 label="¡Vota ya!">
 
                     <div class="container">
                         Galeria de participantes
@@ -148,12 +150,12 @@
                     </div>
 
                 </mat-tab>
-                <mat-tab #btn4 label="Premios"> Content 3 </mat-tab>
-                
+                <mat-tab disabled #btn4 label="Premios"> Content 3 </mat-tab>
+
             </mat-tab-group>
         </div>
         <div class="col-1 text-center">
-            <img src="../../../assets/LogoSMP.png" class="logoSmp"/>
+            <img src="../../../assets/LogoSMP.png" class="logoSmp" />
         </div>
     </div>
 </div>
