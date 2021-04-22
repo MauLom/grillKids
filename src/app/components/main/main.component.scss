@@ -69,7 +69,13 @@ input::placeholder {
     background-image: url(../../../assets/bgIMG.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+<<<<<<< HEAD
     overflow: hidden;
+=======
+    @media screen and (max-width: 860px){
+        background-image: url(../../../assets/fondoMobile.jpeg);
+    }
+>>>>>>> e13b723ab33f68d36cc32519734576a9046a9aaa
 }
 .imgParticpacion {
     max-width: 100%;
