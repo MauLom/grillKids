@@ -14,9 +14,33 @@
                             style=" background-color: #ef529d; width:150px; height:30px; text-align:center; padding: 4px; ">Participa</span>
                     </ng-template>
 
-                    <div class="container">
-                        <div class="row">
+                    <div class="container hideOnMobile">
+                        <div class="row text-justify">
                             <div class="col">
+                                <img class="imgParticpacion" src="../../../assets/flamaYFlamin.png" />
+                            </div>
+                            <div class="col txt-particpa">
+                                <h1 class="title1">¡Estamos buscando a los niños más parrilleros!</h1>
+                                <p>¿Conoces a un niño o niña que le guste hacer carne asada? Únete a nuestro Challenge
+                                    Grill Kids y participa para ganar un Big Green Egg Minimax y kits parrilleros.
+                                </p>
+                                <h1 class="title1">¿Cómo participar? </h1>
+                                <p>
+                                    La convocatoria está abierta para niños y niñas de 6 a 13 años quienes podrán
+                                    participar, con ayuda de sus papás, realizando una de sus recetas más creativas con
+                                    res a la parrilla. Habrá premios para los primeros 3 lugares, que serán los que
+                                    reciban más votaciones.Consulta las bases, términos y condiciones.
+                                    ¡Participa!
+                                </p>
+                                <button mat-flat-button color="warn" (click)="goNextTab()">
+                                    Participa
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container showOnlyOnMobile">
+                        <div class="row text-justify">
+                            <div class="row">
                                 <img class="imgParticpacion" src="../../../assets/flamaYFlamin.png" />
                             </div>
                             <div class="col txt-particpa">
@@ -49,14 +73,14 @@
                     </ng-template>
                     <ng-template #termns>
                         <div class="container">
-                            <div class="row padding-content">
+                            <div class="row padding-content text-justify">
                                 <h1 class="title2">Términos y condiciones:</h1>
                                 <div>
                                     <p>Bases:</p>
                                     <ul>
                                         <li>El concurso consiste en que cada niño o niña elabore una receta a la
                                             parrilla en
-                                            donde ponga a prueba su creatividad, con ayuda de su papá o mamá</li>
+                                            donde ponga a prueba su creatividad, con ayuda de su papá o mamá.</li>
                                         <li>Para participar el niño o la niña deberá tener mínimo 6 hasta 13 años
                                             cumplidos
                                             al día del cierre de convocatoria. </li>
@@ -92,7 +116,7 @@
                                                 </li>
                                                 <li>
                                                     La receta debe tener res como proteína y puede estar acompañada de
-                                                    guarniciones
+                                                    guarniciones.
                                                 </li>
                                             </ul>
                                         </li>
@@ -149,34 +173,63 @@
                 </mat-tab>
 
                 <!-- Area votacion -->
-                <mat-tab disabled>
+                <mat-tab>
                     <ng-template mat-tab-label>
                         <span
                             style=" background-color: #95c93d; width:150px; height:30px; text-align:center; padding: 4px;">¡Vota
                             ya!</span>
                     </ng-template>
                     <div class="container">
-                        Galeria de participantes
-                        <!-- <button (click)="getNewEntries()">
-                            Actualiza
-                        </button> -->
+                        <h1 class="title3">Votaciones inician a partir del 27 de mayo</h1>
+
+
+                        <!-- Galeria de participantes
                         <div class="row">
                             <div class="col" *ngFor="let item of arrImagenes">
                                 <video height="300" [src]="item | async" class="preview-entries" controls>
-                                    <!-- <source type=video/mov >  -->
+                                    <source type=video/mov > 
                                 </video>
                             </div>
-                        </div>
+                        </div> -->
+
                     </div>
                 </mat-tab>
 
                 <!-- Area Premios -->
-                <mat-tab disabled>
+                <mat-tab>
                     <ng-template mat-tab-label>
                         <span
                             style=" background-color: #f58020; width:150px; height:30px; text-align:center; padding: 4px;">Premios</span>
                     </ng-template>
-                    Content 3
+                    <div class="container">
+                        <h1 class="title4">Premios:</h1>
+                        <div>
+                            <img class="imgPremios" src="../../../assets/premiosIMG.jpg" />
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <h3>1º lugar</h3>
+                                    BGE Minimax, Sal Ahumada Original SMP, Rub del Postre, Rub de la Costa, Rub
+                                    Chipinque,
+                                    Mandil de mezclilla y acceso a Masterclass.
+                                </li>
+                                <li>
+                                    <h3>2º lugar</h3>
+                                    Sal Ahumada Original SMP, Rub del Postre, Rub Rosa, Rub Chipinque, Mandil de
+                                    mezclilla,
+                                    peluche Flamín, Gorra SMP, Termo 20 oz y acceso a Masterclass.
+                                </li>
+                                <li>
+                                    <h3>3º lugar</h3>
+                                    Sal Ahumada Original SMP, Rub del Postre, Rub Rosa, Rub Chipinque, Mandil de
+                                    mezclilla,
+                                    tabla de bambú ¾, LlaveroSMP y acceso a Masterclass.
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
                 </mat-tab>
             </mat-tab-group>
         </div>
