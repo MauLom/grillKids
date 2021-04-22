@@ -1,19 +1,23 @@
+<<<<<<< HEAD
 <body background="../../../assets/FondoMobile.jpeg" class="showOnlyOnMobile"> </body>
 <div class="container-fluid">
     <div class="row">
+=======
+<div class="container-fluid bgCnt h-100">
+    <div class="row ">
+>>>>>>> 686395ff4d64f59641eb8e1ddef0fdb17eee5051
         <div class="col-1 text-center">
             <img src="..\..\assets\logoGrillKids.png" class="logoGrillKids">
         </div>
-        <div class="col">
+        <div class="col ">
             <mat-tab-group>
-                <mat-tab label="Participa">
+                <mat-tab id="btn1" label="Participa">
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <video>
-                                </video>
+                                <img  class="imgParticpacion" src="../../../assets/flamaYFlamin.png"/>
                             </div>
-                            <div class="col">
+                            <div class="col txt-particpa">
                                 <h2>¡Estamos buscando a los niños más parrilleros!</h2>
                                 <p>¿Conoces a un niño o niña que le guste hacer carne asada? Únete a nuestro Challenge
                                     Grill Kids y participa para ganar un Big Green Egg Minimax y kits parrilleros.
@@ -33,7 +37,7 @@
                         </div>
                     </div>
                 </mat-tab>
-                <mat-tab label="Términos y condiciones">
+                <mat-tab #btn2 label="Términos y condiciones">
                     <ng-template #termns>
                         <div class="container">
                             <div class="row padding-content">
@@ -133,7 +137,7 @@
                         </form>
                     </ng-container>
                 </mat-tab>
-                <mat-tab label="¡Vota ya!">
+                <mat-tab #btn3 label="¡Vota ya!">
 
                     <div class="container">
                         Galeria de participantes
@@ -150,7 +154,8 @@
                     </div>
 
                 </mat-tab>
-                <mat-tab label="Premios"> Content 3 </mat-tab>
+                <mat-tab #btn4 label="Premios"> Content 3 </mat-tab>
+                
             </mat-tab-group>
         </div>
         <div class="col-1 text-center">

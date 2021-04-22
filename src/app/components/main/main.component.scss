@@ -5,6 +5,12 @@
 
     .mat-tab-label {
         width: 25%;
+
+        #btn1{
+            .mat-tab-label-content{
+                color: green !important;
+            }
+        }
         .mat-tab-label-content {
             color: red;
             text-transform: uppercase;
@@ -13,6 +19,11 @@
 
     .mat-ink-bar {
         height: 0px !important;
+    }
+
+    #btn1{
+             
+
     }
 }
 .cnt-inpt{
@@ -38,7 +49,7 @@
     font-weight: 500;
 }
 .logoGrillKids{
-    width: 350%;
+    width: 100%;
 }
 .inputs{
     background-color: #fff;
@@ -61,4 +72,15 @@ input::placeholder{
     padding-left: 16%;
     padding-right: 10%;
     padding-top: 5%;
+}
+.bgCnt{
+    background-image: url(../../../assets/bgIMG.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.imgParticpacion{
+    max-width: 700px;
+}
+.txt-particpa{
+    margin: 5% 0 0 20px;
 }

@@ -24,7 +24,10 @@
     "@angular/router": "~11.2.10",
     "bootstrap": "^4.6.0",
     "firebase": "^7.0 || ^8.0",
+<<<<<<< HEAD
     "firebase": "^8.4.1",
+=======
+>>>>>>> 686395ff4d64f59641eb8e1ddef0fdb17eee5051
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
