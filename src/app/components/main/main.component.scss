@@ -1,24 +1,21 @@
 ::ng-deep {
-    .mat-tab-nav-bar, .mat-tab-header {
+    .mat-tab-nav-bar,
+    .mat-tab-header {
         border-bottom: 0px;
     }
 
     .mat-tab-label {
         width: 25%;
 
-        #btn1{
-            .mat-tab-label-content{
-                color: green !important;
-            }
-        }
         .mat-tab-label-content {
+            color:white;
             font-weight: 600;
             font-size: 18px;
             text-transform: uppercase;
-            border: 3px solid black;
-            padding: 10px;
-
-            
+            letter-spacing: 1px;
+            #btn1 {
+                color: green !important;
+            }
         }
     }
 
@@ -26,27 +23,27 @@
         height: 0px !important;
     }
 }
-.cnt-inpt{
-    margin:2%;
+.cnt-inpt {
+    margin: 2%;
     height: 50px;
 }
-.main-inpt{
+.main-inpt {
     border-radius: 5px;
     width: 100%;
-    border-radius:4px;
+    border-radius: 4px;
 }
-.preview-entries{
+.preview-entries {
     max-width: 150px;
 }
-.logoSmp{
+.logoSmp {
     width: 90%;
     margin-top: 10px;
 }
 
-.logoGrillKids{
+.logoGrillKids {
     width: 100%;
 }
-.inputs{
+.inputs {
     background-color: #fff;
     width: 200px;
     border-radius: 15px;
@@ -56,26 +53,32 @@
     border-color: #e12026;
     border-style: double;
 }
-input::placeholder{
+input::placeholder {
     color: #e12026;
 }
-.padding-inputs{
+.padding-inputs {
     padding-left: 35%;
     padding-top: 5%;
 }
-.padding-content{
+.padding-content {
     padding-left: 16%;
     padding-right: 10%;
     padding-top: 5%;
 }
-.bgCnt{
+.bgCnt {
     background-image: url(../../../assets/bgIMG.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-.imgParticpacion{
+.imgParticpacion {
     max-width: 700px;
 }
-.txt-particpa{
+.txt-particpa {
     margin: 5% 0 0 20px;
+}
+.title1{
+    color: #e92059; 
+}
+.title2{
+    color: #b4abd4;
 }
