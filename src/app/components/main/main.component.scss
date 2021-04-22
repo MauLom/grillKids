@@ -1,57 +1,49 @@
 ::ng-deep {
-    .mat-tab-nav-bar, .mat-tab-header {
+    .mat-tab-nav-bar,
+    .mat-tab-header {
         border-bottom: 0px;
     }
 
     .mat-tab-label {
         width: 25%;
 
-        #btn1{
-            .mat-tab-label-content{
+        .mat-tab-label-content {
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            #btn1 {
                 color: green !important;
             }
-        }
-        .mat-tab-label-content {
-            color: red;
-            text-transform: uppercase;
         }
     }
 
     .mat-ink-bar {
         height: 0px !important;
     }
-
-    #btn1{
-             
-
-    }
 }
-.cnt-inpt{
-    margin:2%;
+.cnt-inpt {
+    margin: 2%;
     height: 50px;
 }
-.main-inpt{
+.main-inpt {
     border-radius: 5px;
     width: 100%;
-    border-radius:4px;
+    border-radius: 4px;
 }
-.preview-entries{
+.preview-entries {
     max-width: 150px;
 }
-.logoSmp{
+.logoSmp {
     width: 90%;
     margin-top: 10px;
 }
-.letras{
-    color: red;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 500;
+
+.logoGrillKids {
+    width: 150%;
 }
-.logoGrillKids{
-    width: 100%;
-}
-.inputs{
+.inputs {
     background-color: #fff;
     width: 200px;
     border-radius: 15px;
@@ -61,26 +53,62 @@
     border-color: #e12026;
     border-style: double;
 }
-input::placeholder{
+input::placeholder {
     color: #e12026;
 }
-.padding-inputs{
+.padding-inputs {
     padding-left: 35%;
     padding-top: 5%;
 }
-.padding-content{
+.padding-content {
     padding-left: 16%;
     padding-right: 10%;
     padding-top: 5%;
 }
-.bgCnt{
+.bgCnt {
     background-image: url(../../../assets/bgIMG.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-.imgParticpacion{
-    max-width: 700px;
+.imgParticpacion {
+    max-width: 100%;
+    width: 700px;
+    @media screen and (max-width: 860px){
+        max-height: 300px;
+     }
 }
-.txt-particpa{
+.txt-particpa {
     margin: 5% 0 0 20px;
+}
+.title1 {
+    color: #e92059;
+    font-weight: 800;
+}
+.title2 {
+    color: #b4abd4;
+    font-weight: 600;
+}
+.title3 {
+    color: #6bb647;
+    font-weight: 600;
+}
+.title4 {
+    color: #f16b24;
+    font-weight: 600;
+}
+
+.imgPremios {
+    max-width: 100%;
+    width: 700px;
+}
+.hideOnMobile{
+    @media screen and (max-width: 860px){
+        display: none !important;
+    }
+}
+.showOnlyOnMobile{
+    display: none !important;
+    @media screen and (max-width: 860px){
+    display: block !important;
+    }
 }
