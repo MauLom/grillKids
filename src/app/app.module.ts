@@ -12,13 +12,15 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
+import { ModalValidacionComponent } from './components/modal-validacion/modal-validacion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ModalValidacionComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

@@ -1,0 +1,20 @@
+<ng-container *ngIf=" hasError else allOk">
+    <h2 mat-dialog-title>No logramos procesar tu solicitud</h2>
+    <mat-dialog-content>
+        <span>
+            {{message}}
+        </span>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Regresar</button>
+    </mat-dialog-actions>
+</ng-container>
+
+<ng-template #allOk>
+    <h2 mat-dialog-title>¡Gracias por participar!</h2>
+    <mat-dialog-content>Recibimos tu informacion, por favor mantente atento al inicio de las votaciones.
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Terminar</button>
+    </mat-dialog-actions>
+</ng-template>  

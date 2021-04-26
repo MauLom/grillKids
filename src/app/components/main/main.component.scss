@@ -117,5 +117,8 @@ input::placeholder {
     }
 }
 .h-80{
-    height: 80%;
+    height: 90%;
+    @media screen and (max-width: 860px){
+        height: 80%;
+        }
 }

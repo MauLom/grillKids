@@ -6,6 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 const modules: any = [
@@ -13,7 +15,8 @@ const modules: any = [
   MatInputModule,
   MatGridListModule,
   MatButtonModule,
-  FormsModule
+  FormsModule,
+  MatDialogModule
 ]
 
 @NgModule({

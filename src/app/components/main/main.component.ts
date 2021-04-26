@@ -3,6 +3,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalValidacionComponent } from '../modal-validacion/modal-validacion.component';
 
 
 @Component({
@@ -31,7 +33,8 @@ export class MainComponent implements OnInit {
   constructor(
     private storage: AngularFireStorage,
     private db: AngularFireDatabase,
-    public auth: AngularFireAuth
+    public auth: AngularFireAuth,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -58,28 +61,40 @@ export class MainComponent implements OnInit {
     for (let i = 0; i < 8; i++) {
       password += possibleChars[Math.floor(Math.random() * possibleChars.length)];
     }
-    this.auth.createUserWithEmailAndPassword(this.cltEmail, password).then((userCredential => {
+    this.auth.createUserWithEmailAndPassword(this.cltEmail, password).then(
+      (userCredential => {
+        ///[Main Auth]
+        this.user = firebase.auth().currentUser;
+        this.user.updateProfile({ displayName: this.cltName }).then().catch()
+        this.user.sendEmailVerification().then().catch()
 
-      ///[Main Auth]
-      this.user = firebase.auth().currentUser;
-      this.user.updateProfile({ displayName: this.cltName }).then().catch()
-      this.user.sendEmailVerification().then().catch()
+        ///[RTDB]
+        let logId = this.generateRandomNo(1000, 9999)
+        this.db.database.ref('log-entries/' + logId).set({
+          userId: this.user.uid,
+          userName: this.cltName,
+          fileContest: logId.toString() + '-' + this.user.uid,
+          votesCount: 0
+        })
 
-      ///[RTDB]
-      let logId = this.generateRandomNo(1000, 9999)
-      this.db.database.ref('log-entries/' + logId).set({
-        userId: this.user.uid,
-        userName: this.cltName,
-        fileContest: logId.toString() + '-' + this.user.uid,
-        votesCount: 0
-      })
-
-      ///[Storage]
-      /*Con barra para tenerlos en carpetas diferentes para ubicacion mas rapida*/
-      this.uploadFile(this.file1, this.user.uid, 'comprobante/' + logId.toString() + '-' + this.user.uid)
-      /* con guion para poder iterar la misma carpeta*/
-      this.uploadFile(this.file2, this.user.uid, logId.toString() + '-' + this.user.uid)
-    }))
+        ///[Storage]
+        /*Con barra para tenerlos en carpetas diferentes para ubicacion mas rapida*/
+        this.uploadFile(this.file1, this.user.uid, 'comprobante/' + logId.toString() + '-' + this.user.uid)
+        /* con guion para poder iterar la misma carpeta*/
+        this.uploadFile(this.file2, this.user.uid, logId.toString() + '-' + this.user.uid)
+        this.dialog.open(ModalValidacionComponent);
+      }),
+      (error) => {
+        let dialogRef = this.dialog.open(ModalValidacionComponent);
+        console.log("error", error)
+        if (error.code == "auth/email-already-in-use") {
+          dialogRef.componentInstance.message = "Este email ya se encuentra en uso";
+        } else {
+          dialogRef.componentInstance.message = "Error no identificado, por favor identifica al soporte"
+        }
+        dialogRef.componentInstance.hasError = true;
+      }
+    )
       .catch((error) => {
         console.error(error.message);
       })
@@ -94,17 +109,17 @@ export class MainComponent implements OnInit {
     this.idUser = this.generateRandomNo(0, 9999)
   }
   /// [Tab Vota ya]
-  getAllEntries() {
-    this.db.database.ref('log-entries').once('value').then(
-      snapshot => {
-        this.arrParticipantes = Object.entries(snapshot.val())
-        this.arrImagenes = [];
-        this.arrParticipantes.forEach(item => {
-          let ref = this.storage.refFromURL("gs://grillkids-smp.appspot.com/contest/" + item[1].fileContest)
-          this.arrImagenes.push(ref.getDownloadURL());
-          console.log("URL: ", ref.getDownloadURL())
-        })
+  // getAllEntries() {
+  //   this.db.database.ref('log-entries').once('value').then(
+  //     snapshot => {
+  //       this.arrParticipantes = Object.entries(snapshot.val())
+  //       this.arrImagenes = [];
+  //       this.arrParticipantes.forEach(item => {
+  //         let ref = this.storage.refFromURL("gs://grillkids-smp.appspot.com/contest/" + item[1].fileContest)
+  //         this.arrImagenes.push(ref.getDownloadURL());
+  //         console.log("URL: ", ref.getDownloadURL())
+  //       })
 
-      })
-  }
+  //     })
+  // }
 }
