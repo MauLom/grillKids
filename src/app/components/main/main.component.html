@@ -8,7 +8,6 @@
 
                 <!-- Area Participa -->
                 <mat-tab>
-
                     <ng-template mat-tab-label>
                         <span
                             style=" background-color: #ef529d; width:150px; height:30px; text-align:center; padding: 4px; ">Participa</span>
@@ -183,17 +182,18 @@
                             ya!</span>
                     </ng-template>
                     <div class="container">
-                        <h1 class="title3">Votaciones inician a partir del 27 de mayo</h1>
+                        <!-- <h1 class="title3">Votaciones inician a partir del 27 de mayo</h1> -->
 
-
-                        <!-- Galeria de participantes
-                        <div class="row">
-                            <div class="col" *ngFor="let item of arrImagenes">
-                                <video height="300" [src]="item | async" class="preview-entries" controls>
-                                    <source type=video/mov > 
+                        <div class="row text-center">
+                            <div class="col m-2 cadaParticipante" *ngFor="let item of arrParticipantes">
+                                <video [src]="item[2] | async" height="300" class="preview-entries" controls>
+                                    <1source type="video/mov">
                                 </video>
+                                <button (click)="clickVotar(item)" class="text-center" mat-stroked-button mat-flat-button color="warn">
+                                    Votar
+                                </button>
                             </div>
-                        </div> -->
+                        </div>
 
                     </div>
                 </mat-tab>

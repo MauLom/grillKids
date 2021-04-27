@@ -5,6 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalValidacionComponent } from '../modal-validacion/modal-validacion.component';
+import { ModalVotacionComponent } from '../modal-votacion/modal-votacion.component';
 
 
 @Component({
@@ -109,17 +110,24 @@ export class MainComponent implements OnInit {
     this.idUser = this.generateRandomNo(0, 9999)
   }
   /// [Tab Vota ya]
-  // getAllEntries() {
-  //   this.db.database.ref('log-entries').once('value').then(
-  //     snapshot => {
-  //       this.arrParticipantes = Object.entries(snapshot.val())
-  //       this.arrImagenes = [];
-  //       this.arrParticipantes.forEach(item => {
-  //         let ref = this.storage.refFromURL("gs://grillkids-smp.appspot.com/contest/" + item[1].fileContest)
-  //         this.arrImagenes.push(ref.getDownloadURL());
-  //         console.log("URL: ", ref.getDownloadURL())
-  //       })
+  getAllEntries() {
+    this.db.database.ref('log-entries').once('value').then(
+      snapshot => {
+        this.arrParticipantes = Object.entries(snapshot.val())
+        this.arrImagenes = [];
 
-  //     })
-  // }
+        this.arrParticipantes.forEach(item => {
+          let ref = this.storage.refFromURL("gs://grillkids-smp.appspot.com/contest/" + item[1].fileContest)
+          item.push(ref.getDownloadURL());
+          console.log("item arr participantes: ", item);
+
+        })
+
+      })
+  }
+
+  clickVotar(data:any) {
+    console.log("Data:", data)
+    let dialogRef =  this.dialog.open(ModalVotacionComponent);
+  }
 }

@@ -13,6 +13,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { ModalValidacionComponent } from './components/modal-validacion/modal-validacion.component';
+import { ModalVotacionComponent } from './components/modal-votacion/modal-votacion.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ModalValidacionComponent } from './components/modal-validacion/modal-va
     MainComponent,
     FooterComponent,
     HeaderComponent,
-    ModalValidacionComponent
+    ModalValidacionComponent,
+    ModalVotacionComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

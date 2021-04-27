@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Por favor ingrese su email para votar por este video.</h2>
+<mat-dialog-content>
+    <span>
+        Considere que una vez votado por este video, no podra usar su email para otros votos.
+    </span>
+    <form class="container padding-inputs">
+        <div class="row cnt-inpt">
+            <input class="inputs" name="cltName" placeholder="Email" [(ngModel)]="emailVote">
+        </div>
+        <div class="row">
+            <button [disabled]="emailVote == '' " mat-stroked-button>
+                Validar Email
+            </button>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-stroked-button color="warn" disabled> Votar </button>
+    <button mat-button mat-dialog-close>Regresar</button>
+</mat-dialog-actions>
