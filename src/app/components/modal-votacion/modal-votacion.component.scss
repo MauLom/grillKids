@@ -1,0 +1,17 @@
+.cnt-inpt {
+    margin: 2%;
+    height: 50px;
+}
+.inputs {
+    background-color: #fff;
+    width: 200px;
+    border-radius: 15px;
+    height: 35px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-color: #e12026;
+    border-style: double;
+}
+input::placeholder {
+    color: #e12026;
+}

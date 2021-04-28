@@ -6,6 +6,38 @@
         <div class="col mt-4 h-100">
             <mat-tab-group [(selectedIndex)]="tabQuestionsIndex" class="h-80">
 
+                <!-- Area votacion -->
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span
+                            style=" background-color: #95c93d; width:150px; height:30px; text-align:center; padding: 4px;">¡Vota
+                            ya!</span>
+                    </ng-template>
+                    <div class="container">
+                        <!-- <h1 class="title3">Votaciones inician a partir del 27 de mayo</h1> -->
+
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 col-sm-12 m-2 text-center w-100" *ngFor="let item of arrParticipantes">
+                                <h3>{{item[1].userName}}</h3>
+                                <div class="row justify-content-center w-100">
+                                    <video [src]="item[2] | async" width="350" poster class="preview-entries" controls>
+                                        <source type="video/mov">
+                                    </video>
+                                </div>
+                                <div class="row justify-content-center w-100 ">
+                                    <button (click)="clickVotar(item)" class="text-center" mat-stroked-button
+                                        mat-flat-button color="warn">
+                                        Votar
+                                    </button>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </mat-tab>
+
                 <!-- Area Participa -->
                 <mat-tab>
                     <ng-template mat-tab-label>
@@ -31,7 +63,7 @@
                                     reciban más votaciones.Consulta las bases, términos y condiciones.
                                     ¡Participa!
                                 </p>
-                                <button mat-flat-button color="warn" (click)="goNextTab()">
+                                <button disabled mat-flat-button color="warn" (click)="goNextTab()">
                                     Participa aqui
                                 </button>
                             </div>
@@ -55,7 +87,7 @@
                                     reciban más votaciones.Consulta las bases, términos y condiciones.
                                     ¡Participa!
                                 </p>
-                                <button mat-flat-button color="warn" (click)="goNextTab()">
+                                <button disabled mat-flat-button color="warn" (click)="goNextTab()">
                                     Participa aqui
                                 </button>
                             </div>
@@ -137,7 +169,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <button mat-stroked-button (click)="showForm()" mat-flat-button color="warn">
+                                    <button disabled mat-stroked-button (click)="showForm()" mat-flat-button color="warn">
                                         Cargar tu video
                                     </button>
                                 </div>
@@ -172,30 +204,6 @@
                             </div>
                         </form>
                     </ng-container>
-                </mat-tab>
-
-                <!-- Area votacion -->
-                <mat-tab>
-                    <ng-template mat-tab-label>
-                        <span
-                            style=" background-color: #95c93d; width:150px; height:30px; text-align:center; padding: 4px;">¡Vota
-                            ya!</span>
-                    </ng-template>
-                    <div class="container">
-                        <!-- <h1 class="title3">Votaciones inician a partir del 27 de mayo</h1> -->
-
-                        <div class="row text-center">
-                            <div class="col m-2 cadaParticipante" *ngFor="let item of arrParticipantes">
-                                <video [src]="item[2] | async" height="300" class="preview-entries" controls>
-                                    <1source type="video/mov">
-                                </video>
-                                <button (click)="clickVotar(item)" class="text-center" mat-stroked-button mat-flat-button color="warn">
-                                    Votar
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
                 </mat-tab>
 
                 <!-- Area Premios -->

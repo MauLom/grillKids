@@ -72,7 +72,7 @@ export class MainComponent implements OnInit {
         ///[RTDB]
         let logId = this.generateRandomNo(1000, 9999)
         this.db.database.ref('log-entries/' + logId).set({
-          userId: this.user.uid,
+          uid: this.user.uid,
           userName: this.cltName,
           fileContest: logId.toString() + '-' + this.user.uid,
           votesCount: 0
@@ -115,19 +115,17 @@ export class MainComponent implements OnInit {
       snapshot => {
         this.arrParticipantes = Object.entries(snapshot.val())
         this.arrImagenes = [];
-
         this.arrParticipantes.forEach(item => {
           let ref = this.storage.refFromURL("gs://grillkids-smp.appspot.com/contest/" + item[1].fileContest)
           item.push(ref.getDownloadURL());
-          console.log("item arr participantes: ", item);
-
         })
-
       })
   }
 
   clickVotar(data:any) {
     console.log("Data:", data)
     let dialogRef =  this.dialog.open(ModalVotacionComponent);
+    dialogRef.componentInstance.videoId = data[0];
+    dialogRef.componentInstance.userName = data[1].userName;
   }
 }
