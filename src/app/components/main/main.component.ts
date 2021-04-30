@@ -115,8 +115,9 @@ export class MainComponent implements OnInit {
       snapshot => {
         this.arrParticipantes = Object.entries(snapshot.val())
         this.arrImagenes = [];
+        console.log("arr participantes: ", this.arrParticipantes)
         this.arrParticipantes.forEach(item => {
-          let ref = this.storage.refFromURL("gs://grillkids-smp.appspot.com/contest/" + item[1].fileContest)
+          let ref = this.storage.refFromURL("gs://grillkids-smp.appspot.com/contest/" + item[1].filePreview)
           item.push(ref.getDownloadURL());
         })
       })
@@ -127,5 +128,6 @@ export class MainComponent implements OnInit {
     let dialogRef =  this.dialog.open(ModalVotacionComponent);
     dialogRef.componentInstance.videoId = data[0];
     dialogRef.componentInstance.userName = data[1].userName;
+    dialogRef.componentInstance.videoURL = data[1].fileContest;
   }
 }

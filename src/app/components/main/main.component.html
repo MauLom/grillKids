@@ -14,24 +14,24 @@
                             ya!</span>
                     </ng-template>
                     <div class="container">
-                        <!-- <h1 class="title3">Votaciones inician a partir del 27 de mayo</h1> -->
+                        <h1 class="title3">Próximamente anunciaremos al ganador en facebook.com/soyparrilleromx</h1>
 
                         <div class="row justify-content-center">
                             <div class="col-md-3 col-sm-12 m-2 text-center w-100" *ngFor="let item of arrParticipantes">
-                                <h3>{{item[1].userName}}</h3>
-                                <div class="row justify-content-center w-100">
-                                    <video [src]="item[2] | async" width="350" poster class="preview-entries" controls>
-                                        <source type="video/mov">
-                                    </video>
-                                </div>
-                                <div class="row justify-content-center w-100 ">
-                                    <button (click)="clickVotar(item)" class="text-center" mat-stroked-button
-                                        mat-flat-button color="warn">
-                                        Votar
-                                    </button>
-                                </div>
+                                <ng-container *ngIf="item[1].filePreview">
+                                    <h3>{{item[1].userName}}</h3>
+                                    <div class="row justify-content-center w-100">
 
+                                        <img (click)="clickVotar(item)" [src]="item[2] | async" class="img-preview">
 
+                                    </div>
+                                    <div class="row justify-content-center w-100 ">
+                                        <button disabled (click)="clickVotar(item)" class="text-center"
+                                            mat-stroked-button mat-flat-button color="warn">
+                                            Votar
+                                        </button>
+                                    </div>
+                                </ng-container>
                             </div>
                         </div>
 
@@ -169,7 +169,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <button disabled mat-stroked-button (click)="showForm()" mat-flat-button color="warn">
+                                    <button disabled mat-stroked-button (click)="showForm()" mat-flat-button
+                                        color="warn">
                                         Cargar tu video
                                     </button>
                                 </div>
@@ -213,6 +214,8 @@
                             style=" background-color: #f58020; width:150px; height:30px; text-align:center; padding: 4px;">Premios</span>
                     </ng-template>
                     <div class="container">
+                        <h1 class="title3">Próximamente anunciaremos al ganador en facebook.com/soyparrilleromx</h1>
+
                         <h1 class="title4">Premios:</h1>
                         <div>
                             <img class="imgPremios" src="../../../assets/premiosIMG.jpg" />
@@ -243,6 +246,11 @@
                     </div>
                 </mat-tab>
             </mat-tab-group>
+            <div class="showOnlyOnMobile">
+                <a href="https://soyparrillero.mx/">
+                    <img class="w-100" src="../../../assets/bannerGrillKids.png">
+                </a>
+            </div>
         </div>
         <div class="col-1 text-center">
             <img src="../../../assets/LogoSMP.png" class="logoSmp" />

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -15,12 +16,18 @@ export class ModalVotacionComponent implements OnInit {
   nuevoIndice = 0;
   videoId: number | undefined;
   userName = "";
+  videoURL="";
+  videoBLOB:any | undefined;
   constructor(
     private db: AngularFireDatabase,
-    private dialogRef: MatDialogRef<ModalVotacionComponent>
+    private dialogRef: MatDialogRef<ModalVotacionComponent>,
+    private storage: AngularFireStorage,
+
   ) { }
 
   ngOnInit(): void {
+    console.log("VideoURL", this.videoURL)
+    this.videoBLOB = (this.storage.refFromURL("gs://grillkids-smp.appspot.com/contest/" + this.videoURL)).getDownloadURL()
   }
 
   validarEmail(emailToVote: string) {

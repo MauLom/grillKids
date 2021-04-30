@@ -2,16 +2,24 @@
     <span>
         <h2>Recuerda que solo puedes votar una vez</h2>
     </span>
+
+
+    <video [src]="videoBLOB | async" width="250" poster class="preview-entries" controls>
+        <source type="video/mov">
+    </video>
+
     <form class="container padding-inputs">
         <h3>Por favor ingrese su email para votar por el video de: {{userName}}</h3>
         <div class="row cnt-inpt">
             <input class="inputs" name="cltName" placeholder="Email" [(ngModel)]="emailVote" type="email">
         </div>
         <div class="row">
-            <div class="col"><button [disabled]="emailVote == '' || emailValidado " mat-stroked-button
+            <div class="col">
+                <button disabled mat-stroked-button
                     (click)="validarEmail(emailVote)">
                     Validar Email
-                </button></div>
+                </button>
+            </div>
             <div class="col"><span style="color:red; font-size:18px">{{message}}</span></div>
         </div>
     </form>
@@ -21,6 +29,7 @@
         <button mat-button mat-dialog-close>Regresar</button>
     </div>
     <div class="col">
-        <button mat-stroked-button color="warn" [disabled]=" !emailValidado" (click)="procesarVotacion(emailVote)"> Votar </button>
+        <button mat-stroked-button color="warn" disabled (click)="procesarVotacion(emailVote)">
+            Votar </button>
     </div>
 </mat-dialog-actions>

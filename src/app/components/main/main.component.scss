@@ -71,16 +71,16 @@ input::placeholder {
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-    @media screen and (max-width: 860px){
+    @media screen and (max-width: 860px) {
         background-image: url(../../../assets/fondoMobile.jpeg);
     }
 }
 .imgParticpacion {
     max-width: 100%;
     width: 700px;
-    @media screen and (max-width: 860px){
+    @media screen and (max-width: 860px) {
         max-height: 300px;
-     }
+    }
 }
 .txt-particpa {
     margin: 5% 0 0 20px;
@@ -106,20 +106,29 @@ input::placeholder {
     max-width: 100%;
     width: 700px;
 }
-.hideOnMobile{
-    @media screen and (max-width: 860px){
+.hideOnMobile {
+    @media screen and (max-width: 860px) {
         display: none !important;
     }
 }
-.showOnlyOnMobile{
+.showOnlyOnMobile {
     display: none !important;
-    @media screen and (max-width: 860px){
-    display: block !important;
+    @media screen and (max-width: 860px) {
+        display: block !important;
     }
 }
-.h-80{
+.h-80 {
     height: 90%;
-    @media screen and (max-width: 860px){
+    @media screen and (max-width: 860px) {
         height: 80%;
-        }
+    }
+}
+.img-preview {
+    max-width: 300px;
+    max-height: 350px;
+    cursor: pointer;
+    @media screen and (max-width: 860px) {
+        max-width: 250px;
+        max-height: 200px;
+    }
 }
